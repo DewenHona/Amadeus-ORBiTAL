@@ -4,9 +4,14 @@
 
 - [Submission at NASA website](https://2020.spaceappschallenge.org/challenges/connect/orbital-sky/teams/amadeus/project)
 
-Created by:
+Created by;
+
 Siddharth
+
 Faizan
+
 Dewen
+
 Swaraj
+
 Atharva
