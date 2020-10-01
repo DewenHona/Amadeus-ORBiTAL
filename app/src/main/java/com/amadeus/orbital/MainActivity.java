@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFrag=new GlobeFragment();
 
+
                 switch (item.getItemId()){
 
                     case R.id.nav_home:
