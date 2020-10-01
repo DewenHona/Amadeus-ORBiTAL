@@ -33,7 +33,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/click"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.MaterialComponents.Button"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
