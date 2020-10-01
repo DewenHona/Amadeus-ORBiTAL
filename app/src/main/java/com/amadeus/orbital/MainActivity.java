@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_profile:
                         selectedFrag=new ProfileFragment();
                         break;
+                    case R.id.nav_ar:
+                        selectedFrag=new ARFragment();
+                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFrag).commit();
                 return true;

@@ -12,6 +12,11 @@
         android:icon="@drawable/ic_baseline_public_24"
         android:title="@string/globe"/>
     <item
+        android:id="@+id/nav_ar"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_360_24"
+        android:title="@string/ar"/>
+    <item
         android:id="@+id/nav_profile"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_account_circle_24"
