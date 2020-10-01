@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ORBiTAL</string>
     <string name="click">Click</string>
+    <string name="home">Home</string>
+    <string name="globe">Globe</string>
+    <string name="profile">Profile</string>
 </resources>
