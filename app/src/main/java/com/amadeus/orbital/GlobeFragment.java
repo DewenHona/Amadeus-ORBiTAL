@@ -10,8 +10,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
+
 import gov.nasa.worldwind.WorldWind;
 import gov.nasa.worldwind.WorldWindow;
 import gov.nasa.worldwind.geom.LookAt;
@@ -56,15 +59,6 @@ public class GlobeFragment extends Fragment {
         // Add the WorldWindow view object to the layout that was reserved for the globe.
         globeLayout.addView(this.createWorldWindow());
 
-        FloatingActionButton SateliteSearchbtn= rootView.findViewById(R.id.sateliteSearchBtn);
-        SateliteSearchbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i= new Intent(getContext(),SateliteListActivity.class);
-                startActivity(i);
-            }
-        });
-
         FloatingActionButton Searchbtn= rootView.findViewById(R.id.SearchBtn);
         Searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +85,7 @@ public class GlobeFragment extends Fragment {
         // Setup the WorldWindow's layers.
         this.wwd.getLayers().addLayer(new BackgroundLayer());
         this.wwd.getLayers().addLayer(new BlueMarbleLandsatLayer());
+        //this.wwd.getLayers().addLayer(new AtmosphereLayer());
         // Setup the WorldWindow's elevation coverages.
         this.wwd.getGlobe().getElevationModel().addCoverage(new BasicElevationCoverage());
 

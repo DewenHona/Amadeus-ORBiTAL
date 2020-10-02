@@ -17,7 +17,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".SateliteListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
