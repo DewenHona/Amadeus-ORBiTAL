@@ -1,5 +1,6 @@
 package com.amadeus.orbital;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
 
     @Override
     public void onBindViewHolder(@NonNull ExampleVViewHolder holder, int position) {
-        satClass currentItem = list.get(position);
+        final satClass currentItem = list.get(position);
         Log.d("check", "onBindViewHolder: "+currentItem.getName());
 
         holder.name.setText(currentItem.getName());
@@ -55,6 +56,17 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
         Glide.with(holder.image.getContext())
                 .load(imageurl)
                 .into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(v.getContext(),satInfo.class);
+                i.putExtra("satname",currentItem.getName());
+                i.putExtra("satdesc",currentItem.getDesc());
+                i.putExtra("satimage",currentItem.getImageres());
+               v.getContext().startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -62,4 +74,5 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
         Log.d("listsize", "getItemCount: "+list.size());
         return list.size();
     }
+
 }
