@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 import gov.nasa.worldwind.WorldWind;
 import gov.nasa.worldwind.WorldWindow;
 import gov.nasa.worldwind.geom.LookAt;
@@ -29,7 +31,28 @@ import gov.nasa.worldwind.render.Color;
 import gov.nasa.worldwind.render.ImageSource;
 import gov.nasa.worldwind.shape.Placemark;
 import gov.nasa.worldwind.shape.PlacemarkAttributes;
+class satPos{
+    private float lat;
+    private float lng;
+    private float h;
+    satPos(float lat,float lng,float h){
+        this.lat=lat;
+        this.lng=lng;
+        this.h=h;
+    }
 
+    public float getH() {
+        return h;
+    }
+
+    public float getLat() {
+        return lat;
+    }
+
+    public float getLng() {
+        return lng;
+    }
+}
 public class GlobeFragment extends Fragment {
     View rootView;
     private WorldWindow wwd;
@@ -51,9 +74,16 @@ public class GlobeFragment extends Fragment {
             }
         });
 
+
         return rootView;
     }
-
+     private Placemark plotpoints(satPos s){
+        float h=s.getH();
+        float lng=s.getLng();
+        float lat=s.getLat();
+         Placemark ventura = Placemark.createWithColorAndSize(Position.fromDegrees(lat, lng, h), new Color(1, 1, 1, 1), 20);
+         return ventura;
+     }
 
 
     public WorldWindow createWorldWindow() {
@@ -65,60 +95,30 @@ public class GlobeFragment extends Fragment {
         // Setup the WorldWindow's elevation coverages.
         this.wwd.getGlobe().getElevationModel().addCoverage(new BasicElevationCoverage());
 
+            RenderableLayer placemarksLayer = new RenderableLayer("Placemarks");
+            wwd.getLayers().addLayer(placemarksLayer);
 
-        // Create a RenderableLayer for placemarks and add it to the WorldWindow
-        RenderableLayer placemarksLayer = new RenderableLayer("Placemarks");
-        wwd.getLayers().addLayer(placemarksLayer);
+        ArrayList<satPos> positionList=new ArrayList<>();
 
-        //////////////////////////////////////
-        // Second, create some placemarks...
-        /////////////////////////////////////
+        positionList.add(new satPos(350,199,100000));
+        positionList.add(new satPos(370,200,100000));
+        positionList.add(new satPos(390,300,100000));
+        positionList.add(new satPos(400,50,100000));
+        positionList.add(new satPos(550,309,100000));
+        ArrayList<Placemark> ps= new ArrayList<>();
+        for(satPos s:positionList){
 
-        // Create a simple placemark at downtown Ventura, CA. This placemark is a 20x20 cyan square centered on the
-        // geographic position. This placemark demonstrates the creation with a convenient factory method.
-        Placemark ventura = Placemark.createWithColorAndSize(Position.fromDegrees(34.281, -119.293, 20000), new Color(0, 1, 1, 1), 20);
+           Placemark p=plotpoints(s);
+           ps.add(p);
 
-        // Create an image-based placemark of an aircraft above the ground with a leader-line to the surface.
-        // This placemark demonstrates creation via a constructor and a convenient PlacemarkAttributes factory method.
-        // The image is scaled to 1.5 times its original size.
-        Placemark airplane = new Placemark(
-                Position.fromDegrees(34.260, -119.2, 5000),
-                PlacemarkAttributes.createWithImageAndLeader(ImageSource.fromResource(R.drawable.sat2)).setImageScale(1.5));
-
-        // Create an image-based placemark with a label at Oxnard Airport, CA. This placemark demonstrates creation
-        // with a constructor and a convenient PlacemarkAttributes factory method. The image is scaled to 2x
-        // its original size, with the bottom center of the image anchored at the geographic position.
-        Placemark airport = new Placemark(
-                Position.fromDegrees(34.200, -119.208, 0),
-                PlacemarkAttributes.createWithImage(ImageSource.fromResource(R.drawable.sat2)).setImageOffset(Offset.bottomCenter()).setImageScale(2),
-                "Oxnard Airport");
-
-        // Create an image-based placemark from a bitmap. This placemark demonstrates creation with a
-        // constructor and a convenient PlacemarkAttributes factory method. First, a 64x64 bitmap is loaded
-        // and then it is passed into the placemark attributes. The the bottom center of the image anchored
-        // at the geographic position.
-        Bitmap bitmap = BitmapFactory.decodeResource(getWorldWindow().getResources(), R.drawable.sat2);
-        Placemark wildfire = new Placemark(
-                Position.fromDegrees(34.300, -119.25, 0),
-                PlacemarkAttributes.createWithImage(ImageSource.fromBitmap(bitmap)).setImageOffset(Offset.bottomCenter()));
-
-        /////////////////////////////////////////////////////
-        // Third, add the placemarks to the renderable layer
-        /////////////////////////////////////////////////////
-
-        placemarksLayer.addRenderable(ventura);
-        //placemarksLayer.addRenderable(airport);
-        //placemarksLayer.addRenderable(airplane);
-        //placemarksLayer.addRenderable(wildfire);
-
-
-        // And finally, for this demo, position the viewer to look at the airport placemark
-        // from a tilted perspective when this Android activity is created.
-        Position pos = airport.getPosition();
-        LookAt lookAt = new LookAt().set(pos.latitude, pos.longitude, pos.altitude, WorldWind.ABSOLUTE,
-                1e5 /*range*/, 0 /*heading*/, 80 /*tilt*/, 0 /*roll*/);
-        wwd.getNavigator().setAsLookAt(wwd.getGlobe(), lookAt);
-
+        }
+        for(Placemark p:ps){
+            placemarksLayer.addRenderable(p);
+        }
+            Position pos =ps.get(0).getPosition();
+            LookAt lookAt = new LookAt().set(pos.latitude, pos.longitude, pos.altitude, WorldWind.ABSOLUTE,
+                    1e5 /*range*/, 0 /*heading*/, 80 /*tilt*/, 0 /*roll*/);
+            wwd.getNavigator().setAsLookAt(wwd.getGlobe(), lookAt);
 
         return this.wwd;
     }
@@ -136,5 +136,3 @@ public class GlobeFragment extends Fragment {
         this.wwd.onPause(); // pauses the rendering thread
     }
 }
-
-
