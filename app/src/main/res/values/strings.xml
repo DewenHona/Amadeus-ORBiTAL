@@ -5,4 +5,5 @@
     <string name="globe">Globe</string>
     <string name="profile">Profile</string>
     <string name="ar">AR</string>
+    <string name="satellite_list_view">Satellite List View</string>
 </resources>
