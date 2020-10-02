@@ -74,6 +74,14 @@ public class GlobeFragment extends Fragment {
             }
         });
 
+        FloatingActionButton Searchbtn= rootView.findViewById(R.id.SearchBtn);
+        Searchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(getContext(),SearchActivity.class);
+                startActivity(i);
+            }
+        });
 
         return rootView;
     }
