@@ -1,5 +1,6 @@
 package com.amadeus.orbital;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.common.collect.BiMap;
 
 import java.util.ArrayList;
 
 public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleVViewHolder> {
+
 
     private ArrayList<satClass> list;
 
@@ -44,13 +47,19 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
     @Override
     public void onBindViewHolder(@NonNull ExampleVViewHolder holder, int position) {
         satClass currentItem = list.get(position);
-        holder.image.setImageResource(currentItem.getImageres());
+        Log.d("check", "onBindViewHolder: "+currentItem.getName());
+
         holder.name.setText(currentItem.getName());
         holder.desc.setText(currentItem.getDesc());
+        String imageurl= currentItem.getImageres();
+        Glide.with(holder.image.getContext())
+                .load(imageurl)
+                .into(holder.image);
     }
 
     @Override
     public int getItemCount() {
+        Log.d("listsize", "getItemCount: "+list.size());
         return list.size();
     }
 }

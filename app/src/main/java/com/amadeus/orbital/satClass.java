@@ -2,17 +2,17 @@ package com.amadeus.orbital;
 
 public class satClass {
 
-    int Imageres;
+   String Imageres;
     String name;
     String desc;
 
-    satClass(int Imageres,String name,String desc){
+    satClass(String Imageres, String name, String desc){
         this.Imageres=Imageres;
         this.desc=desc;
         this.name=name;
     }
 
-    public int getImageres() {
+    public String getImageres() {
         return Imageres;
     }
 
