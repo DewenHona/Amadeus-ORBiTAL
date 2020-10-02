@@ -55,11 +55,12 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
     @Override
     public void onBindViewHolder(@NonNull ExampleVViewHolder holder, int position) {
         final satClass currentItem = list.get(position);
+
         Log.d("check", "onBindViewHolder: "+currentItem.getName());
 
         holder.name.setText(currentItem.getName());
         holder.desc.setText(currentItem.getDesc());
-        String imageurl= currentItem.getImageres();
+        //String imageurl= currentItem.getImageres();
         holder.image.setImageResource(R.drawable.astronaut);
 //        Glide.with(holder.image.getContext())
 //                .load(imageurl)
@@ -69,9 +70,10 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(),satInfo.class);
-                i.putExtra("satname",currentItem.getName());
-                i.putExtra("satdesc",currentItem.getDesc());
-                i.putExtra("satimage",currentItem.getImageres());
+                    i.putExtra("satDocId",currentItem.getSatDocId());
+//                i.putExtra("satname",currentItem.getName());
+//                i.putExtra("satdesc",currentItem.getDesc());
+//                i.putExtra("satimage",currentItem.getImageres());
                v.getContext().startActivity(i);
             }
         });

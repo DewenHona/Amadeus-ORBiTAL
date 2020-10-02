@@ -56,9 +56,11 @@ public class SearchActivity extends AppCompatActivity {
 
                         String satname= documentSnapshot.get("OfficialNameofSatellite").toString();
                         String satdesc= documentSnapshot.get("Purpose").toString();
+                        String satdocID= documentSnapshot.getId();
+
                         //String image= documentSnapshot.get("").toString();
                         Log.d("YO", "onEvent: "+ satname);
-                        satnamelist.add(new satClass("img",satname,satdesc));
+                        satnamelist.add(new satClass(satdocID,satname,satdesc));
                     }
                 }
                 recyclerView=findViewById(R.id.recylerView);
