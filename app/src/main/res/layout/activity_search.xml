@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +9,12 @@
     android:visibility="visible"
     tools:context=".SearchActivity">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField"
@@ -27,7 +31,6 @@
             app:boxStrokeWidth="1dp"
             app:boxStrokeWidthFocused="2dp"
             android:hint="@string/hint"
-            android:theme="?attr/colorControlActivated"
             android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
             app:hintAnimationEnabled="false"
@@ -58,4 +61,4 @@
         android:padding="20dp"
         android:scrollbars="vertical" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
