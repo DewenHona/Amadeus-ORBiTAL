@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background_image"
     android:visibility="visible"
     tools:context=".SearchActivity">
@@ -14,41 +14,37 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/transparent_white"
-            android:hint="Enter name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:boxStrokeColor="@color/white"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="2dp"
+            android:hint="@string/hint"
+            android:theme="?attr/colorControlActivated"
+            android:textColorHint="@color/white"
+            app:hintTextColor="@color/white"
             app:hintAnimationEnabled="false"
-            app:startIconDrawable="@drawable/ic_sharp_search_24"
-            app:endIconDrawable="@drawable/ic_baseline_close_24"
-            app:endIconMode="custom"
             app:hintEnabled="true"
+            app:startIconDrawable="@drawable/ic_baseline_search_24"
+            app:startIconTint="@color/white"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="false"
+                android:textColor="@color/white"
                 tools:ignore="RtlSymmetry" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/search_close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@android:string/cancel"
-        app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
-        app:backgroundTint="@color/transparent"
-        app:srcCompat="@drawable/ic_baseline_close_24" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerView"
