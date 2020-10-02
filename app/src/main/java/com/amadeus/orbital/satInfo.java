@@ -8,8 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class satInfo extends AppCompatActivity {
+
+    FirebaseFirestore db= FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,19 +22,87 @@ public class satInfo extends AppCompatActivity {
         setContentView(R.layout.activity_sat_info);
 
         Intent i = getIntent();
-        String name = i.getStringExtra("satname");
-        String desc = i.getStringExtra("satdesc");
-        String image = i.getStringExtra("satimage");
 
-        TextView nametext= findViewById(R.id.nameSatInfo);
-        TextView desctext=findViewById(R.id.descSatInfo);
-        ImageView imageView=findViewById(R.id.imageSatInfo);
+        String satDocId=i.getStringExtra("satDocId");
 
-        nametext.setText(name);
-        desctext.setText(desc);
-        Glide.with(imageView.getContext())
-                .load(image)
-                .into(imageView);
+
+        db.collection("satedata").document(satDocId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String name=documentSnapshot.get("OfficialNameofSatellite").toString();
+                String purpose=documentSnapshot.get("Purpose").toString();
+                String country=documentSnapshot.get("CountryofContractor").toString();
+                String dateofLaunch=documentSnapshot.get("DateofLaunch").toString();
+
+                TextView nametext= findViewById(R.id.nameSatInfo);
+                TextView purposetext=findViewById(R.id.descSatInfo);
+                ImageView imageView=findViewById(R.id.imageSatInfo);
+                TextView countrytext =findViewById(R.id.countrySatInfo);
+                TextView datetext =findViewById(R.id.dateSatInfo);
+
+                nametext.setText(name);
+                purposetext.setText(purpose);
+                countrytext.setText(country);
+                datetext.setText(dateofLaunch);
+
+                if(purpose=="Earth Observation"){
+
+                        imageView.setImageResource(R.drawable.earth_observation);
+                }
+                else if(purpose=="Communications"){
+                    imageView.setImageResource(R.drawable.communications);
+                }
+                else if(purpose=="Technology Development"){
+                    imageView.setImageResource(R.drawable.technology_development);
+                }
+                else if(purpose=="Communications/Technology Development"){
+                    imageView.setImageResource(R.drawable.communicationsortechnology_development);
+                }
+                else if(purpose=="Communications/Maritime Tracking"){
+                    imageView.setImageResource(R.drawable.communicationsormaritime_tracking);
+                }
+                else if(purpose=="Space Science"){
+                    imageView.setImageResource(R.drawable.space_science);
+
+                }
+                else if(purpose=="Navigation/Global Positioning"){
+                    imageView.setImageResource(R.drawable.navigationorglobal_positioning);
+
+                }
+                else if(purpose=="Earth Observation/Technology Development"){
+                    imageView.setImageResource(R.drawable.earth_observationortechnology_development);
+                }
+                else if(purpose=="Earth Science"){
+                    imageView.setImageResource(R.drawable.earth_science);
+                }
+                else if(purpose=="Earth Observation/Communications"){
+                    imageView.setImageResource(R.drawable.earth_observationorcommunications);
+                }
+                else if(purpose=="Earth/Space Science"){
+                    imageView.setImageResource(R.drawable.earthorspace_science);
+                }
+                else if(purpose=="Earth Observation/Research"){
+                    imageView.setImageResource(R.drawable.earth_observationorresearch);
+                }
+                else if(purpose=="Communications/Navigation"){
+                    imageView.setImageResource(R.drawable.communicationsornavigation);
+                }
+                else if(purpose=="Space Observation"){
+                    imageView.setImageResource(R.drawable.space_observation);
+                }
+                else if(purpose=="Navigation/Regional Positioning"){
+                    imageView.setImageResource(R.drawable.navigationorregional_positioning);
+                }
+                else if(purpose=="'Technology Demo"){
+                    imageView.setImageResource(R.drawable.technology_demo);
+                }
+
+                else {
+                imageView.setImageResource(R.drawable.communications);}
+            }
+        });
+
+
 
     }
 }
