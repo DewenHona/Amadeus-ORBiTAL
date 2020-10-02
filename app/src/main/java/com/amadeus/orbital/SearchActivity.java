@@ -60,7 +60,7 @@ public class SearchActivity extends AppCompatActivity {
                 mAdapter=new satListAdapter(satnamelist);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(mAdapter);
-            }
+            }//aaa
         });
 
 //        satnamelist.add(new satClass(R.drawable.thunder,"Swaraj","Hello"));
