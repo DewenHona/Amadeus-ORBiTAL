@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-
 import gov.nasa.worldwind.WorldWind;
 import gov.nasa.worldwind.WorldWindow;
 import gov.nasa.worldwind.geom.LookAt;

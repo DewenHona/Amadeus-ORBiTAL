@@ -6,10 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.SearchView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +35,7 @@ public class SearchActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
+    private satListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<satClass> satnamelist=new ArrayList<satClass>();
 
@@ -37,7 +44,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        CollectionReference dbref = db.collection("satlist");
+        CollectionReference dbref = db.collection("satedata");
         dbref.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
 
             @Override
@@ -47,30 +54,60 @@ public class SearchActivity extends AppCompatActivity {
                 for(QueryDocumentSnapshot documentSnapshot: value){
                     if(documentSnapshot.exists()){
 
-                        String satname= documentSnapshot.get("name").toString();
-                        String satdesc= documentSnapshot.get("desc").toString();
-                        String image= documentSnapshot.get("image").toString();
+                        String satname= documentSnapshot.get("OfficialNameofSatellite").toString();
+                        String satdesc= documentSnapshot.get("Purpose").toString();
+                        //String image= documentSnapshot.get("").toString();
                         Log.d("YO", "onEvent: "+ satname);
-                        satnamelist.add(new satClass(image,satname,satdesc));
+                        satnamelist.add(new satClass("img",satname,satdesc));
                     }
                 }
                 recyclerView=findViewById(R.id.recylerView);
                 recyclerView.setHasFixedSize(true);
                 layoutManager=new LinearLayoutManager(SearchActivity.this);
                 mAdapter=new satListAdapter(satnamelist);
+                adapter=new satListAdapter(satnamelist);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(mAdapter);
-            }//aaa
+//                SearchView searchView =findViewById(R.id.textField);
+//
+//                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//                    @Override
+//                    public boolean onQueryTextSubmit(String query) {
+//                        return false;
+//                    }
+//
+//                    @Override
+//                    public boolean onQueryTextChange(String newText) {
+//                        adapter.getFilter().filter(newText);
+//                        return false;
+//                    }
+//                });
+            }
         });
 
-//        satnamelist.add(new satClass(R.drawable.thunder,"Swaraj","Hello"));
-//        satnamelist.add(new satClass(R.drawable.skull,"Atharva","Hi"));
-//        satnamelist.add(new satClass(R.drawable.thunder,"Swaraj","Hello"));
-//        satnamelist.add(new satClass(R.drawable.skull,"Atharva","Hi"));
-//        satnamelist.add(new satClass(R.drawable.thunder,"Swaraj","Hello"));
-//        satnamelist.add(new satClass(R.drawable.skull,"Atharva","Hi"));
 
+    }
 
-        //ggg
+    @SuppressLint("ResourceType")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.search_menu,menu);
+        MenuItem searchitem =menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView) searchitem.getActionView();
+
+         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+             @Override
+             public boolean onQueryTextSubmit(String query) {
+                 return false;
+             }
+
+             @Override
+             public boolean onQueryTextChange(String newText) {
+                 adapter.getFilter().filter(newText);
+                 return false;
+             }
+         });
+        return true;
     }
 }
