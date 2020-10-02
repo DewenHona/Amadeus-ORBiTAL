@@ -1,36 +1,27 @@
 package com.amadeus.orbital;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
-
 import gov.nasa.worldwind.WorldWind;
 import gov.nasa.worldwind.WorldWindow;
 import gov.nasa.worldwind.geom.LookAt;
-import gov.nasa.worldwind.geom.Offset;
 import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.globe.BasicElevationCoverage;
 import gov.nasa.worldwind.layer.BackgroundLayer;
 import gov.nasa.worldwind.layer.BlueMarbleLandsatLayer;
 import gov.nasa.worldwind.layer.RenderableLayer;
 import gov.nasa.worldwind.render.Color;
-import gov.nasa.worldwind.render.ImageSource;
 import gov.nasa.worldwind.shape.Placemark;
-import gov.nasa.worldwind.shape.PlacemarkAttributes;
 class satPos{
     private float lat;
     private float lng;
