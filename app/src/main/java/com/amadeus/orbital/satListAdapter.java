@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,11 +18,15 @@ import com.bumptech.glide.Glide;
 import com.google.common.collect.BiMap;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleVViewHolder> {
+public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleVViewHolder> implements Filterable {
 
 
     private ArrayList<satClass> list;
+    private ArrayList<satClass> listfull;
+
+
 
     public static class ExampleVViewHolder extends RecyclerView.ViewHolder{
         public ImageView image;
@@ -36,6 +42,7 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
 
     public satListAdapter(ArrayList<satClass> list){
         this.list=list;
+        listfull=new ArrayList<>(list);
     }
     @NonNull
     @Override
@@ -53,9 +60,10 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
         holder.name.setText(currentItem.getName());
         holder.desc.setText(currentItem.getDesc());
         String imageurl= currentItem.getImageres();
-        Glide.with(holder.image.getContext())
-                .load(imageurl)
-                .into(holder.image);
+        holder.image.setImageResource(R.drawable.astronaut);
+//        Glide.with(holder.image.getContext())
+//                .load(imageurl)
+//                .into(holder.image);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +81,41 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
     public int getItemCount() {
         Log.d("listsize", "getItemCount: "+list.size());
         return list.size();
+    }
+
+
+
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<satClass> filteredList=new ArrayList<>();
+
+            if(constraint==null || constraint.length()==0){
+                filteredList.addAll(listfull);
+            }else {
+                String filterPattern =constraint.toString().toLowerCase().trim();
+
+                for(satClass item: listfull){
+                    if(item.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results= new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            list.clear();
+            list.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
     }
 
 }
