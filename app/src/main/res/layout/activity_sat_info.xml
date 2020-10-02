@@ -21,6 +21,7 @@
 
             <!-- Media -->
             <ImageView
+                android:id="@+id/imageSatInfo"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
                 android:contentDescription="curiosity"
@@ -35,6 +36,7 @@
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
+                    android:id="@+id/nameSatInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Curiosity"
@@ -50,6 +52,7 @@
                     android:textColor="?android:attr/textColorSecondary" />
 
                 <TextView
+                    android:id="@+id/descSatInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -59,21 +62,8 @@
 
             </LinearLayout>
 
-            <!-- Buttons -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="horizontal">
 
-                <com.google.android.material.button.MaterialButton
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="View"
-                    android:textColor="@color/colorAccent" />
-            </LinearLayout>
+
 
         </LinearLayout>
 
