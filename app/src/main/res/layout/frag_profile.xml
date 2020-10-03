@@ -13,11 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/profcard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp">
+        android:layout_margin="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     android:layout_height="120dp"
                     android:layout_width="match_parent"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginTop="6dp">
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -96,14 +97,14 @@
 
             android:layout_height="120dp"
             android:layout_width="match_parent"
-            android:layout_margin="12dp">
+            android:layout_margin="20dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Your Captures"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:layout_margin="8dp"/>
+                android:layout_margin="10dp"/>
         </com.google.android.material.card.MaterialCardView>
         <com.google.android.material.card.MaterialCardView
 

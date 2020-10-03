@@ -39,7 +39,7 @@ public class GlobeFragment extends Fragment {
         // Add the WorldWindow view object to the layout that was reserved for the globe.
         globeLayout.addView(this.createWorldWindow());
 
-        FloatingActionButton Searchbtn= rootView.findViewById(R.id.SearchBtn);
+        ExtendedFloatingActionButton Searchbtn= rootView.findViewById(R.id.SearchBtn);
         Searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
