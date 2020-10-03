@@ -5,16 +5,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+    android:background="@color/colorPrimary"
     android:visibility="visible"
     tools:context=".SearchActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
 
-    </RelativeLayout>
+
+<!--&lt;!&ndash;    <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/textField"&ndash;&gt;-->
+<!--&lt;!&ndash;            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginStart="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginEnd="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxStrokeColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxCornerRadiusBottomEnd="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxCornerRadiusTopEnd="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxCornerRadiusBottomStart="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxCornerRadiusTopStart="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxStrokeWidth="1dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:boxStrokeWidthFocused="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:hint="@string/hint"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColorHint="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:hintTextColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:hintAnimationEnabled="false"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:hintEnabled="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:startIconDrawable="@drawable/ic_baseline_search_24"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:startIconTint="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;            tools:ignore="MissingConstraints">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                tools:ignore="RtlSymmetry" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+<!--    </RelativeLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylerView"
@@ -22,10 +56,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="0dp"
         android:background="@color/transparent"
         android:padding="20dp"
-        android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="-26dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:scrollbars="vertical" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
