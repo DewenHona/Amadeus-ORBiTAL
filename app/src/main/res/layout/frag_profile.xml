@@ -2,114 +2,75 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/transparent"
     android:scrollbars="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text="Alex"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:src="@drawable/user_face" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_corner"
-        android:padding="16dp"
-        android:text="Space Enthusiast"
-        android:textColor="@color/white" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="264dp"
-        android:text="Your Captures ..."
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/profcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="300dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_corner"
-        android:fadeScrollbars="true"
-        android:isScrollContainer="true"
-        android:nestedScrollingEnabled="true"
-        android:padding="8dp"
-        android:scrollbars="horizontal">
+        android:layout_margin="8dp">
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/sat_1"
-                android:layout_margin="4dp"/>
+            android:orientation="vertical">
 
+            <!-- Media -->
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/sat"
-                android:layout_margin="4dp"/>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/sat_2"
-                android:layout_margin="4dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:contentDescription="@string/content_description_media"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/bsat" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/sat_1"
-                android:layout_margin="4dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/welcome_to_you_profile"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
         </LinearLayout>
-    </RelativeLayout>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/proBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="436dp"
-        android:text="Progress"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        android:textStyle="bold" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
 
-    <androidx.core.widget.ContentLoadingProgressBar
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="482dp"
-        android:layout_marginEnd="32dp"
-        android:animationResolution="@android:integer/config_mediumAnimTime"
-        android:max="100"
-        android:progress="25"
-        android:progressTint="@color/colorAccent"
-        android:visibility="visible" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="@string/launch"
+
+
+        app:backgroundTint="@color/colorAccent"
+        app:icon="@drawable/ic_baseline_thumb_up"
+        app:iconTint="@color/colorPrimary"
+        app:rippleColor="@color/colorAccent" />
+
 </RelativeLayout>

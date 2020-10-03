@@ -17,4 +17,7 @@
     <string name="action_2">SHARE</string>
     <string name="_2_you_will_see_plane_generated">2. You will see plane generated</string>
     <string name="splash_text">Splashs</string>
+    <string name="profiles">Hey Explorer!</string>
+    <string name="welcome_to_you_profile">Welcome to you Profile</string>
+    <string name="globe_view">Globe View</string>
 </resources>

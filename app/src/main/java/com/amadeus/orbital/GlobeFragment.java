@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class GlobeFragment extends Fragment {
                 startActivity(i);
             }
         });
-        FloatingActionButton explorebtn= rootView.findViewById(R.id.exploreBtn);
+        ExtendedFloatingActionButton explorebtn= rootView.findViewById(R.id.exploreBtn);
         explorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

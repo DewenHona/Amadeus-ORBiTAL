@@ -5,48 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/transparent"
     android:visibility="visible"
     tools:context=".SearchActivity">
-
-
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:boxStrokeColor="@color/white"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="1dp"
-            app:boxStrokeWidthFocused="2dp"
-            android:hint="@string/hint"
-            android:textColorHint="@color/white"
-            app:hintTextColor="@color/white"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="true"
-            app:startIconDrawable="@drawable/ic_baseline_search_24"
-            app:startIconTint="@color/white"
-            tools:ignore="MissingConstraints">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                tools:ignore="RtlSymmetry" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
     </RelativeLayout>
 
@@ -56,10 +22,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="0dp"
         android:background="@color/transparent"
         android:padding="20dp"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="-26dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
