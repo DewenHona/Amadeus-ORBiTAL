@@ -97,7 +97,7 @@ public class satInfo extends AppCompatActivity {
                     imageView.setImageResource(R.drawable.technology_demo);
                 }
                 else {
-                imageView.setImageResource(R.drawable.communications);}
+                imageView.setImageResource(R.drawable.technology_demo);}
             }
         });
 
