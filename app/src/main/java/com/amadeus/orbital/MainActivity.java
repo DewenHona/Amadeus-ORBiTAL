@@ -12,6 +12,10 @@ import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationMenu;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.ar.core.exceptions.UnavailableApkTooOldException;
+import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
+import com.google.ar.core.exceptions.UnavailableSdkTooOldException;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -42,7 +46,17 @@ public class MainActivity extends AppCompatActivity {
                         selectedFrag=new ProfileFragment();
                         break;
                     case R.id.nav_ar:
-                        selectedFrag=new ARFragment();
+                        try {
+                            selectedFrag=new ARFragment();
+                        } catch (UnavailableSdkTooOldException e) {
+                            e.printStackTrace();
+                        } catch (UnavailableDeviceNotCompatibleException e) {
+                            e.printStackTrace();
+                        } catch (UnavailableArcoreNotInstalledException e) {
+                            e.printStackTrace();
+                        } catch (UnavailableApkTooOldException e) {
+                            e.printStackTrace();
+                        }
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFrag).commit();

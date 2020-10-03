@@ -15,8 +15,11 @@
 package com.amadeus.orbital.helloar;
 
 import android.os.Handler;
-import android.support.annotation.IntDef;
+
+
 import android.util.Log;
+
+import androidx.annotation.IntDef;
 
 import java.util.ArrayList;
 

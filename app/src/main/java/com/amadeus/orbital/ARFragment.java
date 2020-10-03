@@ -5,11 +5,13 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.se.omapi.Session;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,13 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.Camera;
 import com.google.ar.core.Frame;
+import com.google.ar.core.HitResult;
+import com.google.ar.core.Plane;
+import com.google.ar.core.Point;
+import com.google.ar.core.PointCloud;
+import com.google.ar.core.Session;
+import com.google.ar.core.Trackable;
+import com.google.ar.core.TrackingState;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.UnavailableApkTooOldException;
 import com.google.ar.core.exceptions.UnavailableArcoreNotInstalledException;
@@ -50,7 +59,7 @@ import java.util.zip.Inflater;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class ARFragment extends Fragment {
+public class ARFragment extends Fragment implements ARFragment1 {
     private View v;
     private static final String TAG = ARFragment.class.getSimpleName();
 
@@ -66,8 +75,8 @@ public class ARFragment extends Fragment {
     private boolean installRequested;
 
     // Create the session.
-    private Session session;
-    private final SnackbarHelper messageSnackbarHelper = new SnackbarHelper();
+    private com.google.ar.core.Session session;
+   // private final SnackbarHelper messageSnackbarHelper = new SnackbarHelper();
     private DisplayRotationHelper displayRotationHelper;
     private TapHelper tapHelper;
 
@@ -153,8 +162,8 @@ public class ARFragment extends Fragment {
 
     }
 
-    public ARFragment() {
-        session = new Session(v.getContext());
+    public ARFragment() throws UnavailableSdkTooOldException, UnavailableDeviceNotCompatibleException, UnavailableArcoreNotInstalledException, UnavailableApkTooOldException {
+        session = new com.google.ar.core.Session(getActivity());
     }
     @Override
     public void onResume() {
@@ -200,7 +209,8 @@ public class ARFragment extends Fragment {
             }
 
             if (message != null) {
-                messageSnackbarHelper.showError(getActivity(), message);
+               // messageSnackbarHelper.showError(getActivity(), message);
+                Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
                 Log.e(TAG, "Exception creating session", exception);
                 return;
             }
@@ -213,7 +223,8 @@ public class ARFragment extends Fragment {
             // In some cases (such as another camera app launching) the camera may be given to
             // a different app instead. Handle getActivity() properly by showing a message and recreate the
             // session at the next iteration.
-            messageSnackbarHelper.showError(getActivity(), "Camera not available. Please restart the app.");
+            //messageSnackbarHelper.showError(getActivity(), "Camera not available. Please restart the app.");
+            Toast.makeText(getActivity(),"Camera not available. Please restart the app.",Toast.LENGTH_LONG).show();
             session = null;
             return;
         }
@@ -221,7 +232,9 @@ public class ARFragment extends Fragment {
         surfaceView.onResume();
         displayRotationHelper.onResume();
 
-        messageSnackbarHelper.showMessage(getActivity(), "Searching for surfaces...");
+       // messageSnackbarHelper.showMessage(getActivity(), "Searching for surfaces...");
+        Toast.makeText(getActivity(),"Searching for surfaces...",Toast.LENGTH_LONG).show();
+
     }
 
     @Override
@@ -252,7 +265,7 @@ public class ARFragment extends Fragment {
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
+        this.onWindowFocusChanged(hasFocus);
         FullScreenHelper.setFullScreenOnWindowFocusChanged(getActivity(), hasFocus);
     }
 
@@ -338,14 +351,14 @@ public class ARFragment extends Fragment {
             pointCloud.release();
 
             // Check if we detected at least one plane. If so, hide the loading message.
-            if (messageSnackbarHelper.isShowing()) {
-                for (Plane plane : session.getAllTrackables(Plane.class)) {
-                    if (plane.getTrackingState() == TrackingState.TRACKING) {
-                        messageSnackbarHelper.hide(getActivity());
-                        break;
-                    }
-                }
-            }
+//            if (messageSnackbarHelper.isShowing()) {
+//                for (Plane plane : session.getAllTrackables(Plane.class)) {
+//                    if (plane.getTrackingState() == TrackingState.TRACKING) {
+//                        messageSnackbarHelper.hide(getActivity());
+//                        break;
+//                    }
+//                }
+//            }
 
             // Visualize planes.
             planeRenderer.drawPlanes(
@@ -392,7 +405,7 @@ public class ARFragment extends Fragment {
                         && (PlaneRenderer.calculateDistanceToPlane(hit.getHitPose(), camera.getPose()) > 0))
                         || (trackable instanceof Point
                         && ((Point) trackable).getOrientationMode()
-                        == OrientationMode.ESTIMATED_SURFACE_NORMAL)) {
+                        == Point.OrientationMode.ESTIMATED_SURFACE_NORMAL)) {
                     // Hits are sorted by depth. Consider only closest hit on a plane or oriented point.
                     // Cap the number of objects created. getActivity() avoids overloading both the
                     // rendering system and ARCore.
@@ -418,11 +431,11 @@ public class ARFragment extends Fragment {
             byte[] objBytes = null;
             byte[] textureBytes = null;
             for (int i = 0; i < mFileDownloader.getEntryCount(); i++) {
-                AsyncFileDownloader.Entry getActivity()Entry = mFileDownloader.getEntry(i);
-                if (getActivity()Entry.fileName.toLowerCase().endsWith(".obj")) {
-                    objBytes = getActivity()Entry.contents;
-                } else if (getActivity()Entry.fileName.toLowerCase().endsWith(".png")) {
-                    textureBytes = getActivity()Entry.contents;
+                AsyncFileDownloader.Entry thisEntry = mFileDownloader.getEntry(i);
+                if (thisEntry.fileName.toLowerCase().endsWith(".obj")) {
+                    objBytes = thisEntry.contents;
+                } else if (thisEntry.fileName.toLowerCase().endsWith(".png")) {
+                    textureBytes = thisEntry.contents;
                 }
             }
 
@@ -534,14 +547,12 @@ public class ARFragment extends Fragment {
 
     private void showAttributionToast() {
         mShowedAttributionToast = true;
-        runOnUiThread(new Runnable() {
+        Handler mHandler = new Handler(Looper.getMainLooper());
+       mHandler.post(new Runnable() {
             @Override
             public void run() {
-                // NOTE: we use a toast for showing attribution in getActivity() sample because it's the
-                // simplest way to accomplish getActivity(). In your app, you are not required to use
-                // a toast. You can display getActivity() attribution information in the most appropriate
-                // way for your application.
-                Toast.makeText(v.getContext(), mAttributionText, Toast.LENGTH_LONG).show();
+
+                Toast.makeText(getActivity(), mAttributionText, Toast.LENGTH_LONG).show();
             }
         });
     }
