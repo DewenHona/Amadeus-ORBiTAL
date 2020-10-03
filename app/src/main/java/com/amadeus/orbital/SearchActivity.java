@@ -70,20 +70,7 @@ public class SearchActivity extends AppCompatActivity {
                 adapter=new satListAdapter(satnamelist);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(mAdapter);
-//                SearchView searchView =findViewById(R.id.textField);
-//
-//                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//                    @Override
-//                    public boolean onQueryTextSubmit(String query) {
-//                        return false;
-//                    }
-//
-//                    @Override
-//                    public boolean onQueryTextChange(String newText) {
-//                        adapter.getFilter().filter(newText);
-//                        return false;
-//                    }
-//                });
+
             }
         });
 

@@ -3,7 +3,10 @@ package com.amadeus.orbital;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,27 +17,29 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Text;
 
+import static android.os.Build.HOST;
+
 public class satInfo extends AppCompatActivity {
 
     FirebaseFirestore db= FirebaseFirestore.getInstance();
-
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sat_info);
 
+
         Intent i = getIntent();
 
         String satDocId=i.getStringExtra("satDocId");
 
-//col
 
 
         db.collection("satedata").document(satDocId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-                String name = documentSnapshot.get("OfficialNameofSatellite").toString();
+                name = documentSnapshot.get("OfficialNameofSatellite").toString();
                 String purpose = documentSnapshot.get("Purpose").toString();
                 if(purpose.equals("")) purpose="N/A";
                 String country = documentSnapshot.get("CountryofContractor").toString();
@@ -162,6 +167,23 @@ public class satInfo extends AppCompatActivity {
             }
         });
 
+        Button seachWebBtn = findViewById(R.id.searchWebButton);
+        seachWebBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = new Uri.Builder()
+                        .scheme("https")
+                        .appendPath("google.com")
+                        .appendPath(name)
+                        //.appendPath("satellite")
+//                        .appendQueryParameter("key", API_KEY)
+                        .build().toString();
+                Uri uriUrl = Uri.parse(url);
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
+
+            }
+        });
 
 
     }
