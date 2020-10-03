@@ -7,17 +7,15 @@
     android:backgroundTint="@color/transparent">
 
 
-
-
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/openNasaBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
 
-        android:layout_marginLeft   ="115dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="360dp"
 
         android:backgroundTint="@color/colorAccent"
         android:contentDescription="@string/launch"
@@ -32,10 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
 
         android:layout_marginEnd="115dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="360dp"
 
         android:backgroundTint="@color/colorAccent"
         android:contentDescription="@string/launch"
@@ -46,17 +44,20 @@
         app:rippleColor="@color/colorAccent" />
 
 
-
-
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="350"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/animation" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+        </LinearLayout>
 
 </RelativeLayout>
 
