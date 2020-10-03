@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/transparent"
     android:scrollbars="vertical">
-
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/profcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Profile"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
             <!-- Media -->
             <ImageView
                 android:layout_width="match_parent"
@@ -29,48 +43,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp">
 
                 <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/welcome_to_you_profile"
-                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Alex"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
                     android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textSize="30dp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Bio"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/profcardinner"
+                    android:layout_height="120dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="6dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Space enthusiast"
+                        android:layout_margin="6dp"
+                        android:scrollHorizontally="true"
+                        android:textSize="18dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Captures"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                <com.google.android.material.card.MaterialCardView
+
+                    android:layout_height="120dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="6dp">
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+</ScrollView>
 
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/proBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="80dp"
-
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/launch"
-
-
-        app:backgroundTint="@color/colorAccent"
-        app:icon="@drawable/ic_baseline_thumb_up"
-        app:iconTint="@color/colorPrimary"
-        app:rippleColor="@color/colorAccent" />
 
 </RelativeLayout>
