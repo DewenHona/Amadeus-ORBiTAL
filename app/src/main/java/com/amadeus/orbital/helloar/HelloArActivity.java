@@ -229,7 +229,7 @@ public class HelloArActivity  extends AppCompatActivity implements GLSurfaceView
     surfaceView.onResume();
     displayRotationHelper.onResume();
 
-    messageSnackbarHelper.showMessage(this, "Searching for surfaces...");
+    messageSnackbarHelper.showMessage(this, "Getting Satellies in Your Area");
   }
 
   @Override

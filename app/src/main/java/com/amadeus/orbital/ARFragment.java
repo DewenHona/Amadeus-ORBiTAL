@@ -33,6 +33,7 @@ import com.amadeus.orbital.helloar.AsyncFileDownloader;
 import com.amadeus.orbital.helloar.AsyncHttpRequest;
 import com.amadeus.orbital.helloar.HelloArActivity;
 import com.amadeus.orbital.helloar.PolyApi;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.ArCoreApk;
@@ -71,7 +72,7 @@ public class ARFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView= inflater.inflate(R.layout.frag_ar,container,false);
 
-        FloatingActionButton openarbtn= rootView.findViewById(R.id.openArBtn);
+        ExtendedFloatingActionButton openarbtn= rootView.findViewById(R.id.openArBtn);
         openarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
