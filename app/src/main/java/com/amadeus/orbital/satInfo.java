@@ -174,17 +174,9 @@ public class satInfo extends AppCompatActivity {
         seachWebBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = new Uri.Builder()
-                        .scheme("https")
-                        .appendPath("google.com")
-                        .appendPath(name)
-                        //.appendPath("satellite")
-//                        .appendQueryParameter("key", API_KEY)
-                        .build().toString();
-                Uri uriUrl = Uri.parse(url);
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-
+                String URLString = "https://www.google.com/search?hl=en&source=hp&q="+name+" satellite";
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(URLString));
+                startActivity(i);
             }
         });
 
