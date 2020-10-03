@@ -18,7 +18,7 @@ public class exploreGlobe extends AppCompatActivity {
             WebSettings webSettings = myWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
 
-
+//a
             setContentView(myWebView);
             myWebView.loadUrl("http://192.168.1.107:1234");
 
