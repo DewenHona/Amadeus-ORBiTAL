@@ -27,7 +27,7 @@ public class satInfo extends AppCompatActivity {
 
         String satDocId=i.getStringExtra("satDocId");
 
-
+//col
 
 
         db.collection("satedata").document(satDocId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
