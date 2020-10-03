@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-   <com.google.android.material.floatingactionbutton.FloatingActionButton
-       android:id="@+id/openArBtn"
-       android:layout_centerHorizontal="true"
-       android:layout_centerVertical="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+       android:id="@+id/extended_fab"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       />
+       android:layout_alignParentEnd="true"
+       android:layout_alignParentBottom="true"
+       android:layout_gravity="bottom|right"
+       android:layout_marginStart="16dp"
+       android:layout_marginTop="16dp"
+       android:layout_marginEnd="16dp"
+       android:layout_marginBottom="16dp"
+       android:contentDescription="launch"
+       android:text="LAUNCH"
+       app:backgroundTint="@color/colorAccent"
+       app:icon="@drawable/ic_baseline_360_24" />
 
 </RelativeLayout>
