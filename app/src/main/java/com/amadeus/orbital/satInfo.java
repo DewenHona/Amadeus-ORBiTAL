@@ -174,15 +174,16 @@ public class satInfo extends AppCompatActivity {
         seachWebBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String escapedQuery = null;
-                try {
-                    escapedQuery = URLEncoder.encode(name, "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                Uri uri = Uri.parse("http://www.google.com/#q=" + escapedQuery);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                String url = new Uri.Builder()
+                        .scheme("https")
+                        .appendPath("google.com")
+                        .appendPath(name)
+                        //.appendPath("satellite")
+//                        .appendQueryParameter("key", API_KEY)
+                        .build().toString();
+                Uri uriUrl = Uri.parse(url);
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
 
             }
         });
