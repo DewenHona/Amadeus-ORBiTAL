@@ -67,6 +67,7 @@ public class satInfo extends AppCompatActivity {
                 if(COSPAR.equals("")) COSPAR="N/A";
                 String NORAD=documentSnapshot.get("NORADNumber").toString();
                 if(NORAD.equals("")) NORAD="N/A";
+                //asdsa
 
                 TextView nametext= findViewById(R.id.nameSatInfo);
                 TextView purposetext=findViewById(R.id.descSatInfo);
