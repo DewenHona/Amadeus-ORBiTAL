@@ -65,7 +65,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class ARFragment extends Fragment  {
  private View rootView;
-//aa
+//a
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
