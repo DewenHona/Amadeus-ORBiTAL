@@ -7,4 +7,5 @@
     <string name="ar">AR</string>
     <string name="satellite_list_view">Satellite List View</string>
     <string name="hint">Enter name</string>
+    <string name="splash_text">Team Amadeus</string>
 </resources>
