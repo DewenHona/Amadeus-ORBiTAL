@@ -61,7 +61,61 @@ public class satListAdapter extends RecyclerView.Adapter<satListAdapter.ExampleV
         holder.name.setText(currentItem.getName());
         holder.desc.setText(currentItem.getDesc());
         //String imageurl= currentItem.getImageres();
-        holder.image.setImageResource(R.drawable.astronaut);
+
+        String purpose = currentItem.getDesc();
+
+        if(purpose.equals("Earth Observation")){
+            holder.image.setImageResource(R.drawable.earth_observation);
+        }
+        else if(purpose.equals("Communications")){
+            holder.image.setImageResource(R.drawable.communications);
+        }
+        else if(purpose.equals("Technology Development")){
+            holder.image.setImageResource(R.drawable.technology_development);
+        }
+        else if(purpose.equals("Communications/Technology Development")){
+            holder.image.setImageResource(R.drawable.communicationsortechnology_development);
+        }
+        else if(purpose.equals("Communications/Maritime Tracking")){
+            holder.image.setImageResource(R.drawable.communicationsormaritime_tracking);
+        }
+        else if(purpose.equals("Space Science")){
+            holder.image.setImageResource(R.drawable.space_science);
+        }
+        else if(purpose.equals("Navigation/Global Positioning")){
+            holder.image.setImageResource(R.drawable.navigationorglobal_positioning);
+        }
+        else if(purpose.equals("Earth Observation/Technology Development")){
+            holder.image.setImageResource(R.drawable.earth_observationortechnology_development);
+        }
+        else if(purpose.equals("Earth Science")){
+            holder.image.setImageResource(R.drawable.earth_science);
+        }
+        else if(purpose.equals("Earth Observation/Communications")){
+            holder.image.setImageResource(R.drawable.earth_observationorcommunications);
+        }
+        else if(purpose.equals("Earth/Space Science")){
+            holder.image.setImageResource(R.drawable.earthorspace_science);
+        }
+        else if(purpose.equals("Earth Observation/Research")){
+            holder.image.setImageResource(R.drawable.earth_observationorresearch);
+        }
+        else if(purpose.equals("Communications/Navigation")){
+            holder.image.setImageResource(R.drawable.communicationsornavigation);
+        }
+        else if(purpose.equals("Space Observation")){
+            holder.image.setImageResource(R.drawable.space_observation);
+        }
+        else if(purpose.equals("Navigation/Regional Positioning")){
+            holder.image.setImageResource(R.drawable.navigationorregional_positioning);
+        }
+        else if(purpose.equals("Technology Demo")){
+            holder.image.setImageResource(R.drawable.technology_demo);
+        }
+        else {
+            holder.image.setImageResource(R.drawable.technology_demo);}
+
+        //holder.image.setImageResource(R.drawable.astronaut);
 //        Glide.with(holder.image.getContext())
 //                .load(imageurl)
 //                .into(holder.image);
