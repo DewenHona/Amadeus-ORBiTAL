@@ -14,10 +14,6 @@ public class exploreGlobe extends AppCompatActivity {
         setContentView(R.layout.activity_explore_globe);
 
 
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_explore_globe);
-
-
             WebView myWebView = (WebView) findViewById(R.id.exploreWebView);
             WebSettings webSettings = myWebView.getSettings();
             webSettings.setJavaScriptEnabled(true);
