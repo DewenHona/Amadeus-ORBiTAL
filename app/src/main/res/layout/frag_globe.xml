@@ -26,7 +26,7 @@
         android:layout_marginTop="20dp"
 
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/launc"
+        android:contentDescription="launch"
         android:text="Search Sat"
 
         app:backgroundTint="@color/colorAccent"
