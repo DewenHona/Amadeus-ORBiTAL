@@ -46,17 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFrag=new ProfileFragment();
                         break;
                     case R.id.nav_ar:
-                        try {
-                            selectedFrag=new ARFragment();
-                        } catch (UnavailableSdkTooOldException e) {
-                            e.printStackTrace();
-                        } catch (UnavailableDeviceNotCompatibleException e) {
-                            e.printStackTrace();
-                        } catch (UnavailableArcoreNotInstalledException e) {
-                            e.printStackTrace();
-                        } catch (UnavailableApkTooOldException e) {
-                            e.printStackTrace();
-                        }
+                        selectedFrag=new ARFragment();
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFrag).commit();

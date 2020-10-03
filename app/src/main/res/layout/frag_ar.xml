@@ -3,10 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <android.opengl.GLSurfaceView
-        android:id="@+id/surfaceview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="top"  />
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
+       android:id="@+id/openArBtn"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
 
 </RelativeLayout>

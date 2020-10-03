@@ -20,6 +20,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity android:name=".satInfo"></activity>
+        <activity android:name=".helloar.HelloArActivity"></activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
