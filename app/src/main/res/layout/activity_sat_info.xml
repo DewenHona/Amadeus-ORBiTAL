@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
         android:id="@+id/card_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,36 +41,36 @@
                 <!-- Title, secondary and supporting text -->
 
 
-                    <TextView
+                <TextView
                     android:id="@+id/nameSatInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Curiosity"
-                     android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
                     android:textStyle="bold"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                         android:textColor="@color/colorAccent"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
 
-                    android:text="Country:  "/>
-                <TextView
-                    android:id="@+id/countrySatInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="NASA"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
+                        android:text="Country:  "/>
+                    <TextView
+                        android:id="@+id/countrySatInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="NASA"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,14 +100,14 @@
                         android:layout_marginTop="16dp"
 
                         android:text="Purpose:  "/>
-                <TextView
-                    android:id="@+id/descSatInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Here comes the satellite info."
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    <TextView
+                        android:id="@+id/descSatInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Here comes the satellite info."
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -369,6 +369,6 @@
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

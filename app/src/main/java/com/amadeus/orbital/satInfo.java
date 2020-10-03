@@ -27,7 +27,7 @@ public class satInfo extends AppCompatActivity {
 
         String satDocId=i.getStringExtra("satDocId");
 
-
+//col
 
 
         db.collection("satedata").document(satDocId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -67,6 +67,7 @@ public class satInfo extends AppCompatActivity {
                 if(COSPAR.equals("")) COSPAR="N/A";
                 String NORAD=documentSnapshot.get("NORADNumber").toString();
                 if(NORAD.equals("")) NORAD="N/A";
+                //asdsa
 
                 TextView nametext= findViewById(R.id.nameSatInfo);
                 TextView purposetext=findViewById(R.id.descSatInfo);
@@ -107,7 +108,7 @@ public class satInfo extends AppCompatActivity {
 
                 if(purpose.equals("Earth Observation")){
 
-                        imageView.setImageResource(R.drawable.earth_observation);
+                    imageView.setImageResource(R.drawable.earth_observation);
                 }
                 else if(purpose.equals("Communications")){
                     imageView.setImageResource(R.drawable.communications);
@@ -157,7 +158,7 @@ public class satInfo extends AppCompatActivity {
                     imageView.setImageResource(R.drawable.technology_demo);
                 }
                 else {
-                imageView.setImageResource(R.drawable.technology_demo);}
+                    imageView.setImageResource(R.drawable.technology_demo);}
             }
         });
 
