@@ -22,13 +22,14 @@
         <activity android:name=".satInfo"></activity>
         <activity android:name=".helloar.HelloArActivity"></activity>
         <activity android:name=".SearchActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
         <meta-data
             android:name="com.google.ar.core"
             android:value="required" />

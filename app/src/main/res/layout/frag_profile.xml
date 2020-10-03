@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Alex - Space enthusiast"
+        android:text="Alex"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_corner"
         android:padding="16dp"
-        android:text="Bio..."
+        android:text="Space Enthusiast"
         android:textColor="@color/white" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -47,7 +47,7 @@
         android:textSize="16dp"
         android:textStyle="bold" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -59,17 +59,34 @@
         android:nestedScrollingEnabled="true"
         android:padding="8dp"
         android:scrollbars="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sat_1"
+                android:layout_margin="4dp"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/sat_1" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sat"
+                android:layout_margin="4dp"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sat_2"
+                android:layout_margin="4dp"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/sat_2" />
-    </LinearLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/sat_1"
+                android:layout_margin="4dp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
