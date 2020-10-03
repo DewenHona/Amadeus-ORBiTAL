@@ -26,7 +26,10 @@
                 android:layout_height="194dp"
                 android:contentDescription="curiosity"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/curiosity" />
+
+
+                />
+            <!--app:srcCompat="@drawable/curiosity" -->
 
             <LinearLayout
                 android:layout_width="match_parent"

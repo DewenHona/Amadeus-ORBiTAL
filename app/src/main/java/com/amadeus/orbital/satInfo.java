@@ -45,60 +45,59 @@ public class satInfo extends AppCompatActivity {
                 countrytext.setText(country);
                 datetext.setText(dateofLaunch);
 
-                if(purpose=="Earth Observation"){
+                if(purpose.equals("Earth Observation")){
 
                         imageView.setImageResource(R.drawable.earth_observation);
                 }
-                else if(purpose=="Communications"){
+                else if(purpose.equals("Communications")){
                     imageView.setImageResource(R.drawable.communications);
                 }
-                else if(purpose=="Technology Development"){
+                else if(purpose.equals("Technology Development")){
                     imageView.setImageResource(R.drawable.technology_development);
                 }
-                else if(purpose=="Communications/Technology Development"){
+                else if(purpose.equals("Communications/Technology Development")){
                     imageView.setImageResource(R.drawable.communicationsortechnology_development);
                 }
-                else if(purpose=="Communications/Maritime Tracking"){
+                else if(purpose.equals("Communications/Maritime Tracking")){
                     imageView.setImageResource(R.drawable.communicationsormaritime_tracking);
                 }
-                else if(purpose=="Space Science"){
+                else if(purpose.equals("Space Science")){
                     imageView.setImageResource(R.drawable.space_science);
 
                 }
-                else if(purpose=="Navigation/Global Positioning"){
+                else if(purpose.equals("Navigation/Global Positioning")){
                     imageView.setImageResource(R.drawable.navigationorglobal_positioning);
 
                 }
-                else if(purpose=="Earth Observation/Technology Development"){
+                else if(purpose.equals("Earth Observation/Technology Development")){
                     imageView.setImageResource(R.drawable.earth_observationortechnology_development);
                 }
-                else if(purpose=="Earth Science"){
+                else if(purpose.equals("Earth Science")){
                     imageView.setImageResource(R.drawable.earth_science);
                 }
-                else if(purpose=="Earth Observation/Communications"){
+                else if(purpose.equals("Earth Observation/Communications")){
                     imageView.setImageResource(R.drawable.earth_observationorcommunications);
                 }
-                else if(purpose=="Earth/Space Science"){
+                else if(purpose.equals("Earth/Space Science")){
                     imageView.setImageResource(R.drawable.earthorspace_science);
                 }
-                else if(purpose=="Earth Observation/Research"){
+                else if(purpose.equals("Earth Observation/Research")){
                     imageView.setImageResource(R.drawable.earth_observationorresearch);
                 }
-                else if(purpose=="Communications/Navigation"){
+                else if(purpose.equals("Communications/Navigation")){
                     imageView.setImageResource(R.drawable.communicationsornavigation);
                 }
-                else if(purpose=="Space Observation"){
+                else if(purpose.equals("Space Observation")){
                     imageView.setImageResource(R.drawable.space_observation);
                 }
-                else if(purpose=="Navigation/Regional Positioning"){
+                else if(purpose.equals("Navigation/Regional Positioning")){
                     imageView.setImageResource(R.drawable.navigationorregional_positioning);
                 }
-                else if(purpose=="'Technology Demo"){
+                else if(purpose.equals("Technology Demo")){
                     imageView.setImageResource(R.drawable.technology_demo);
                 }
-
                 else {
-                imageView.setImageResource(R.drawable.communications);}
+                imageView.setImageResource(R.drawable.technology_demo);}
             }
         });
 

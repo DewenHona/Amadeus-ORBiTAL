@@ -2,7 +2,7 @@ package com.amadeus.orbital;
 
 public class satClass {
 
-   String satDocId;
+    String satDocId;
     String name;
     String desc;
 
