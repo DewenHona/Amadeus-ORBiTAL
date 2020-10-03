@@ -78,7 +78,7 @@ public class ARFragment extends Fragment  {
                 Intent i= new Intent(getContext(), HelloArActivity.class);
                 startActivity(i);
             }
-        });//a
+        });//a//a
 
         return rootView;
     }//aa
