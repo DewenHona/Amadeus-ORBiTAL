@@ -67,6 +67,14 @@ public class GlobeFragment extends Fragment {
                 startActivity(i);
             }
         });
+        FloatingActionButton explorebtn= rootView.findViewById(R.id.exploreBtn);
+        explorebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(getContext(),exploreGlobe.class);
+                startActivity(i);
+            }
+        });
 
         return rootView;
     }
