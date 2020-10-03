@@ -20,17 +20,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
 
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="20dp"
 
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/launch"
-        android:text="@string/globe_view"
+        android:contentDescription="@string/launc"
+        android:text="Search Sat"
 
         app:backgroundTint="@color/colorAccent"
-        app:icon="@drawable/ic_baseline_public_24"
+        app:icon="@drawable/ic_baseline_search_24"
         app:iconTint="@color/colorPrimary"
         app:rippleColor="@color/colorAccent"/>
 
@@ -39,10 +39,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
 
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginTop="20dp"
 
         android:backgroundTint="@color/colorAccent"
         android:contentDescription="@string/launch"
