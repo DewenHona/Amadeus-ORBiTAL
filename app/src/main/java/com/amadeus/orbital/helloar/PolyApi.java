@@ -55,7 +55,7 @@ public class PolyApi {
         .authority(HOST)
         .appendPath("v1")
         .appendPath("assets")
-        .appendPath("1C3zb8Q9USk")
+        .appendPath("2i9NPgZ-ALP")
         .appendQueryParameter("key", API_KEY)
         .build().toString();
 

@@ -1,14 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-   <com.google.android.material.floatingactionbutton.FloatingActionButton
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="bold"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <com.google.android.material.card.MaterialCardView
+       android:id="@+id/card"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="8dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+         <!-- Media -->
+         <ImageView
+             android:layout_width="match_parent"
+             android:layout_height="194dp"
+             android:contentDescription="@string/content_description_media"
+             android:scaleType="centerCrop"
+             app:srcCompat="@drawable/arcard" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:padding="16dp">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/secondary_text"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/supporting_text"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/_2_you_will_see_plane_generated"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="3. Tap on screen to see satellites."
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary" />
+
+         </LinearLayout>
+
+
+      </LinearLayout>
+
+   </com.google.android.material.card.MaterialCardView>
+
+   <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
        android:id="@+id/openArBtn"
-       android:layout_centerHorizontal="true"
-       android:layout_centerVertical="true"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       />
+       android:layout_alignParentEnd="true"
+       android:layout_alignParentBottom="true"
+
+       android:layout_marginEnd="16dp"
+       android:layout_marginBottom="80dp"
+
+       android:backgroundTint="@color/colorAccent"
+       android:contentDescription="@string/launch"
+       android:text="@string/launchs"
+
+       app:backgroundTint="@color/colorAccent"
+       app:icon="@drawable/ic_baseline_360_24"
+       app:iconTint="@color/colorPrimary"
+       app:rippleColor="@color/colorAccent" />
 
 </RelativeLayout>

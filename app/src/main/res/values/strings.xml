@@ -7,4 +7,13 @@
     <string name="ar">AR</string>
     <string name="satellite_list_view">Satellite List View</string>
     <string name="hint">Enter name</string>
+    <string name="launch">launch</string>
+    <string name="launchs">LAUNCH</string>
+    <string name="content_description_media">Taken on:</string>
+    <string name="title">Satellites AR</string>
+    <string name="secondary_text">Use  you camera to capture satellites.</string>
+    <string name="supporting_text">1. Wait for Camera to calculate depth.</string>
+    <string name="action_1">VIEW</string>
+    <string name="action_2">SHARE</string>
+    <string name="_2_you_will_see_plane_generated">2. You will see plane generated</string>
 </resources>
