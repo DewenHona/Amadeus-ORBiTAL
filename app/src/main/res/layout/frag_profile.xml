@@ -109,6 +109,7 @@
             </com.google.android.material.card.MaterialCardView>
 
         </com.google.android.material.card.MaterialCardView>
+        <!-- Continuous slider -->
 
     </LinearLayout>
     </ScrollView>
