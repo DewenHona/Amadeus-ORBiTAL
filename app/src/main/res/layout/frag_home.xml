@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:backgroundTint="@color/transparent"
     android:padding="16dp">
 
@@ -17,48 +19,11 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/animation" />
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/openNasaBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@id/animationView"
-
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="10dp"
-
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/launch"
-
-        app:backgroundTint="@color/ic_orbital_background"
-        app:icon="@drawable/ic_nasa_logo"
-        app:iconTint="@color/colorPrimaryDark"
-        app:rippleColor="@color/colorAccent"
-        />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/openGitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/animationView"
-
-        android:layout_marginEnd="115dp"
-        android:layout_marginTop="10dp"
-
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="@string/launch"
-
-        app:backgroundTint="@color/ic_orbital_background"
-        app:icon="@drawable/ic_github_logo"
-        app:iconTint="@color/colorPrimary"
-        app:rippleColor="@color/colorAccent" />
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/profcard"
+        android:id="@+id/homecard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/openGitBtn"
+        android:layout_below="@id/animationView"
         android:layout_margin="8dp">
 
         <LinearLayout
@@ -72,59 +37,7 @@
                 android:layout_height="194dp"
                 android:contentDescription="@string/content_description_media"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/bsat">
-
-            </ImageView>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="25dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/profile"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/welcome_to_you_profile"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/profcard2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profcard"
-        android:layout_margin="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="194dp"
-                android:contentDescription="@string/content_description_media"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/homecore" />
+                app:srcCompat="@drawable/sat5" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,23 +49,57 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                    android:text="@string/hey_explorer"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/colorAccent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/welcome_to_you_profile"
+                    android:text="@string/we_are_trying_to_change_the_way_we_connect_with_satellites"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/openGitBtn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginEnd="8dp"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="@string/github"
+                        android:textColor="@color/white" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/openNasaBtn"
+                        style="?attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorAccent"
+                        android:text="@string/nasa"
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
 </RelativeLayout>
 
 </ScrollView>

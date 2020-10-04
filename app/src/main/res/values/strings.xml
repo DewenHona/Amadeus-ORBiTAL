@@ -22,4 +22,8 @@
     <string name="globe_view">Globe View</string>
     <string name="hey_explorer">Hey Explorer!</string>
     <string name="your_profile">Your Profile</string>
+    <string name="hey_explorer1">Hey Explorer!</string>
+    <string name="we_are_trying_to_change_the_way_we_connect_with_satellites">We are trying to change the way we connect with satellites.</string>
+    <string name="github">Github</string>
+    <string name="nasa">NASA</string>
 </resources>

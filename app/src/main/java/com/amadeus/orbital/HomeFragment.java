@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.UnsupportedEncodingException;
@@ -25,7 +26,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
          v=inflater.inflate(R.layout.frag_home,container,false);
 
-        FloatingActionButton gitHubBtn = v.findViewById(R.id.openGitBtn);
+        MaterialButton gitHubBtn = v.findViewById(R.id.openGitBtn);
         gitHubBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +37,8 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        FloatingActionButton nasaOpenBtn = v.findViewById(R.id.openNasaBtn);
+
+        MaterialButton nasaOpenBtn = v.findViewById(R.id.openNasaBtn);
         nasaOpenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
